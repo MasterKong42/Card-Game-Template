@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c025b4487bfbb41fca186c7d9d6e18a5, type: 3}
-  m_Name: Blank_Data
+  m_Name: Bow&Arrow_Data
   m_EditorClassIdentifier: 
-  card_name: Blank Card
-  description: blank
-  health: 4
-  cost: 3
-  damage: 7
+  card_name: Bow & Arrow
+  description: Peirce
+  health: 0
+  cost: 2
+  damage: 2
   sprite: {fileID: 0}
