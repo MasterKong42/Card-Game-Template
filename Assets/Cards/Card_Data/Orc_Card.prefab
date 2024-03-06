@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 1126644538999475434}
   m_Layer: 0
   m_Name: Orc_Card
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
