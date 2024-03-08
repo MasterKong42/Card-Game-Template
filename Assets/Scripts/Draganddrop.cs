@@ -48,9 +48,9 @@ public class Draganddrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        //if (dragging = false && other.CompareTag())
-        {
-            player.playcard(gameObject);
+        if (dragging == false && other.CompareTag("Playarea"))
+        { 
+                player.playcard(gameObject);
         }
     }
 }
