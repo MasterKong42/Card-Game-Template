@@ -1,20 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Draganddrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
-{
-    private RectTransform rectTransform;
-    private Canvas canvas;
+{  private RectTransform rectTransform;
+    private CanvasScaler canvasScaler;
     private CanvasGroup canvasGroup;
-
+    public bool dragging;
     public Vector2 offset;
+    public Player player;
 
     private void Start()
     {
+        player = FindObjectOfType<Player>();
         rectTransform = GetComponent<RectTransform>();
-        canvas = GetComponentInParent<Canvas>();
+        canvasScaler = GetComponentInParent<CanvasScaler>();
         canvasGroup = GetComponent<CanvasGroup>();
 
         if (canvasGroup == null)
@@ -26,34 +30,27 @@ public class Draganddrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public void OnPointerDown(PointerEventData eventData)
     {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, eventData.pressEventCamera, out offset);
-
-        // Set the pivot to the bottom-left to avoid the offset issue
-        rectTransform.pivot = new Vector2(0, 0);
-
         canvasGroup.blocksRaycasts = false;
+        dragging = true;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Vector2 pointerPos = ClampToCanvas(eventData.position - offset);
-        rectTransform.anchoredPosition = pointerPos;
+        Vector3 pointerPos = new Vector3(eventData.position.x - offset.x/2, eventData.position.y - offset.y/2, 0f);
+        rectTransform.position = pointerPos;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
+        dragging = false;
     }
 
-    private Vector2 ClampToCanvas(Vector2 position)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        Vector2 canvasSize = canvas.GetComponent<RectTransform>().sizeDelta;
-        Vector2 halfSize = rectTransform.sizeDelta * 0.5f;
-
-        float xClamped = Mathf.Clamp(position.x, 0, canvasSize.x - rectTransform.sizeDelta.x);
-        float yClamped = Mathf.Clamp(position.y, 0, canvasSize.y - rectTransform.sizeDelta.y);
-
-        return new Vector2(xClamped, yClamped);
+        //if (dragging = false && other.CompareTag())
+        {
+            player.playcard(gameObject);
+        }
     }
 }
-
-

@@ -19,4 +19,9 @@ public class Player : MonoBehaviour
     {
         
     }
+
+    public void playcard(GameObject Card)
+    {
+        throw new System.NotImplementedException();
+    }
 }
