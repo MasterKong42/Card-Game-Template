@@ -8,7 +8,6 @@ TagManager:
   - Sheild
   - Heal
   - Meteor
-  - Multiply
   layers:
   - Default
   - TransparentFX
