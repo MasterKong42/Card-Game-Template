@@ -22,6 +22,6 @@ public class Player : MonoBehaviour
 
     public void playcard(GameObject Card)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("card played"+Card.name);
     }
 }
