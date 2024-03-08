@@ -10,7 +10,7 @@ public class Card : MonoBehaviour
 
     public string card_name;
     public string description;
-    public int health;
+    public string health;
     public int cost;
     public int damage;
     public Sprite sprite;
