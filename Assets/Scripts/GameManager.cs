@@ -12,12 +12,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI win;
     public static GameManager gm;
     public List<Card> deck = new List<Card>();
-    public List<Card> player_deck = new List<Card>();
+    public List<TextMeshProUGUI> player_deck = new List<TextMeshProUGUI>();
     public List<Card> ai_deck = new List<Card>();
-    public List<Card> player_hand = new List<Card>();
+    public List<TextMeshProUGUI> player_hand = new List<TextMeshProUGUI>();
     public List<Card> ai_hand = new List<Card>();
     public List<Card> ai_discard_pile = new List<Card>();
-    public List<Card> player_discard_pile = new List<Card>();
+    public List<TextMeshProUGUI> player_discard_pile = new List<TextMeshProUGUI>();
 
     private void Awake()
     {

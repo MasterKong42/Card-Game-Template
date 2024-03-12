@@ -7,9 +7,10 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
-    
-    
-    public int ai_energy;
+
+
+
+public int ai_energy;
     public GameManager Manager;
 
     // Start is called before the first frame update
