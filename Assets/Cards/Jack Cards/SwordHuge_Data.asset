@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card_name: Huge Sword
   description: Huge Attack
-  health: 0
+  health: Attack
   cost: 3
   damage: 4
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 0ec602ef516824dfb99990a8039ac6e3, type: 3}

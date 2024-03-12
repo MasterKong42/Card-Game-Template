@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Sheild_Data
   m_EditorClassIdentifier: 
   card_name: Sheild
-  description: Sheild
-  health: 0
+  description: Little Protection
+  health: Sheild
   cost: 1
   damage: 2
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9ead28d385d2a410baa01b8e93df4a41, type: 3}

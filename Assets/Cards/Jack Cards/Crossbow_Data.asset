@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Crossbow_Data
   m_EditorClassIdentifier: 
   card_name: Crossbow
-  description: Big Peirce
-  health: 0
+  description: Ignores sheilds
+  health: Peirce
   cost: 2
   damage: 3
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 353fb555fc7d54704949dbf3a7a04708, type: 3}

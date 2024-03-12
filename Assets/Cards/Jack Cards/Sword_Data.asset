@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card_name: Sword
   description: Attack
-  health: 0
+  health: Attack
   cost: 2
   damage: 2
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 3668033a43cae4b708024a53080589e8, type: 3}

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Potion_Data
   m_EditorClassIdentifier: 
   card_name: Berries
-  description: Heal
-  health: 0
+  description: Yum?
+  health: Heal
   cost: 1
-  damage: 2
-  sprite: {fileID: 0}
+  damage: 3
+  sprite: {fileID: 21300000, guid: 92558a751746746aa967bfcdfe4854de, type: 3}
