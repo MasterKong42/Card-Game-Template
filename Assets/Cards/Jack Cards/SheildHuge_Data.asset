@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SheildHuge_Data
   m_EditorClassIdentifier: 
   card_name: Huge Sheild
-  description: Sheild
-  health: 0
+  description: Protected
+  health: Sheild
   cost: 2
   damage: 4
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9375158825b244597b8c456e3f5b114a, type: 3}

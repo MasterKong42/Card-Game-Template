@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bow&Arrow_Data
   m_EditorClassIdentifier: 
   card_name: Bow & Arrow
-  description: Peirce
-  health: 0
+  description: Ignores sheilds
+  health: Peirce
   cost: 2
   damage: 2
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 7e7a8fade4f6e45c4a24a13ca5e40664, type: 3}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card_name: Meteor
   description: Deal 2 dmg to Caster
-  health: 0
-  cost: 4
+  health: Attack
+  cost: 3
   damage: 5
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 78906eba2b13945f7a57b9399fcbfd55, type: 3}
