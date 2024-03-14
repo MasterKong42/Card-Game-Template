@@ -1,40 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class EndTrunButton : MonoBehaviour
+public class EndTrunButton : MonoBehaviour, IPointerDownHandler
 {
-    //public BoxCollider2D;
-    public bool PlayerTurn;
-    public bool AITurn;
-    
+    public Player player;
 
-    public void Start()
+    private void Start()
     {
-        PlayerTurn = true;
-        AITurn = false;
-       
+        player = FindObjectOfType<Player>();
     }
 
-    void Update()
+    public void OnPointerDown(PointerEventData eventData)
     {
-        if (PlayerTurn)
-        {
-            //the code
-        }
-
-        if (AITurn)
-        {
-            
-        }
-    }
-
-    public void ButtonClicked()
-    {
-        PlayerTurn = false;
-        AITurn = true;
-       
+        // When the button is clicked, switch the turn
+        player.SwitchTurn();
     }
 }
+
+   
+
 
 

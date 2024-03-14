@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public Card card;
     public int player_energy;
     public Card_data data;
-    
+    public bool isPlayerTurn = true;
     public GameManager Manager;
     public bool boosted;
     public int effectAmount;
@@ -40,6 +40,22 @@ public class Player : MonoBehaviour
                 shuffle();
         }
         
+    }
+    
+    public void SwitchTurn()
+    {
+        isPlayerTurn = !isPlayerTurn; // Toggle between player's turn and AI's turn
+        
+        if (!isPlayerTurn)
+        {
+            // Call a method to execute AI's turn
+            //AIPlayer.Instance.ExecuteTurn();
+        }
+        else
+        {
+            playerturn();
+           
+        }
     }
 
     void Playerdraw()
