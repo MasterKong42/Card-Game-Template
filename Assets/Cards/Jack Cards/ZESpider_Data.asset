@@ -15,6 +15,6 @@ MonoBehaviour:
   card_name: Enemy Spider
   description: He must bite
   health: Attack
-  cost: 2
+  cost: 1
   damage: 2
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 1d388217655804d6185b6f8d07fd774b, type: 3}
