@@ -1,19 +1,26 @@
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class EndTrunButton : MonoBehaviour, IPointerDownHandler
+
+public class EndTurnButton : MonoBehaviour
 {
     public Player player;
-
+    public Button yourButton;
+    
     private void Start()
     {
         player = FindObjectOfType<Player>();
+        Button btn = yourButton.GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void TaskOnClick()
     {
+        
         // When the button is clicked, switch the turn
         player.SwitchTurn();
+        Debug.Log("button pressed");
     }
 }
 

@@ -51,7 +51,7 @@ public class Draganddrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     {
         if (dragging == false && other.CompareTag("Playarea"))
         { 
-              // player.playcard(gameObject);
+            player.playcard(gameObject);
         }
     }
 }
