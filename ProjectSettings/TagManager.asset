@@ -10,6 +10,7 @@ TagManager:
   - Meteor
   - Multiply
   - Peirce
+  - playarea
   layers:
   - Default
   - TransparentFX

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
@@ -16,8 +18,10 @@ public class Player : MonoBehaviour
     public int effectAmount;
     public int meteor;
     public bool playerTurn;
-
+    public Canvas canvas;
     public Transform randomspot;
+
+    public GameObject drawncard;
     // Start is called before the first frame update
     void Start()
     {
@@ -74,7 +78,9 @@ public class Player : MonoBehaviour
         {
             randomspot.position = new Vector2(Random.Range(-880f, 880), Random.Range(-690f, 190));
             int randomIndex = Random.Range(0, Manager.player_deck.Count);
-            Instantiate(Manager.player_deck[randomIndex],randomspot);
+            Debug.Log(randomspot.position); 
+            drawncard = Instantiate(Manager.player_deck[randomIndex],randomspot.position, quaternion.identity);
+            drawncard.transform.parent = canvas.transform;
             Manager.player_hand.Add(Manager.player_deck[randomIndex]);
             Manager.player_deck.RemoveAt(randomIndex);
         }
@@ -116,7 +122,7 @@ public class Player : MonoBehaviour
 
             if (Card.CompareTag("Attack"))
             {
-                if (Manager.playershield > 0)
+                if (Manager.enemyshield > 0)
                 {
                     Manager.enemyshield -= effectAmount;
                 }
