@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8979861385356965149}
   m_Layer: 5
   m_Name: SheildCard
-  m_TagString: Untagged
+  m_TagString: Sheild
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

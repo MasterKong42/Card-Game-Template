@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         Playershield.text = "Shield " + playershield;
         Playerenergy.text = "Energy " + player.player_energy;
         Aishield.text = "Shield " + enemyshield;
-        Aihealth.text = "Shield " + enemyhealth;
+        Aihealth.text = "Health " + enemyhealth;
     }
 
     void Deal()
