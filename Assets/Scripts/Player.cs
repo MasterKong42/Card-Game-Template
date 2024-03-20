@@ -27,7 +27,8 @@ public class Player : MonoBehaviour
     {
         Manager.playerhealth = 10;
         boosted = false;
-        player_energy = 6;
+        player_energy = 0;
+        playerturn();
 
     }
 
@@ -76,11 +77,14 @@ public class Player : MonoBehaviour
     {
         if (Manager.player_deck.Count != 0)
         {
-            randomspot.position = new Vector2(Random.Range(-880f, 880), Random.Range(-690f, 190));
+            randomspot.position = new Vector2(Random.Range(40, 1100), Random.Range(60, 300));
             int randomIndex = Random.Range(0, Manager.player_deck.Count);
-            Debug.Log(randomspot.position); 
-            drawncard = Instantiate(Manager.player_deck[randomIndex],randomspot.position, quaternion.identity);
+            Debug.Log(randomspot.position);
+            drawncard = Manager.player_deck[randomIndex];
+            Manager.player_deck[randomIndex].SetActive(true);
+            drawncard.transform.localScale = new Vector3(0.6f, 0.6f, 1f);
             drawncard.transform.parent = canvas.transform;
+            drawncard.transform.position = randomspot.position;
             Manager.player_hand.Add(Manager.player_deck[randomIndex]);
             Manager.player_deck.RemoveAt(randomIndex);
         }
@@ -96,6 +100,8 @@ public class Player : MonoBehaviour
     {
         if (playerTurn)
         {
+            Manager.player_discard_pile.Add(Card);
+            Manager.player_hand.Remove(Card);
             card = FindObjectOfType<Card>();
             data = card.data;
             Debug.Log("Card Name: " + data.card_name);
@@ -171,8 +177,8 @@ public class Player : MonoBehaviour
             }
 
             Manager.player_hand.Remove(Card);
-            Manager.player_discard_pile.Add(Card);
-            Destroy(Card);
+            
+            Card.SetActive(false);
         }
     }
 

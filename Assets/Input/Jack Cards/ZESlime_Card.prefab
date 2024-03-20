@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 2217404899377687377}
   m_Layer: 0
   m_Name: ZESlime_Card
-  m_TagString: Attack
+  m_TagString: Sheild
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -742,7 +742,7 @@ MonoBehaviour:
   description: 
   health: 0
   cost: 0
-  damage: 0
+  damage: 2
   sprite: {fileID: 0}
   nameText: {fileID: 7705493308246827600}
   descriptionText: {fileID: 6269079315834516502}

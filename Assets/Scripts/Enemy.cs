@@ -75,7 +75,7 @@ public int ai_energy;
             yield return new WaitForSeconds(1f);
             int randomIndex = Random.Range(0, Manager.ai_hand.Count);
             Manager.ai_discard_pile.Add(Manager.ai_hand[randomIndex]);
-            Card playedcard = Manager.ai_hand[randomIndex];
+            GameObject playedcard = Manager.ai_hand[randomIndex];
             Manager.ai_hand.RemoveAt(randomIndex);
             ai_energy -= 1;
             Card attachedScript = playedcard.GetComponent<Card>();
@@ -98,9 +98,10 @@ public int ai_energy;
                 Debug.Log("did "+attachedScript.damage+" damage");
             }
 
-            if (playedcard.tag == "shield")
+            else
             {
                 Manager.enemyshield += attachedScript.damage;
+                Debug.Log("added"+attachedScript.damage+"shield");
             } 
         }
         

@@ -20,10 +20,10 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     public List<Card> deck = new List<Card>();
     public List<GameObject> player_deck = new List<GameObject>();
-    public List<Card> ai_deck = new List<Card>();
+    public List<GameObject> ai_deck = new List<GameObject>();
     public List<GameObject> player_hand = new List<GameObject>();
-    public List<Card> ai_hand = new List<Card>();
-    public List<Card> ai_discard_pile = new List<Card>();
+    public List<GameObject> ai_hand = new List<GameObject>();
+    public List<GameObject> ai_discard_pile = new List<GameObject>();
     public List<GameObject> player_discard_pile = new List<GameObject>();
     public Player player;
     private void Awake()
@@ -52,6 +52,10 @@ public class GameManager : MonoBehaviour
         Playerenergy.text = "Energy " + player.player_energy;
         Aishield.text = "Shield " + enemyshield;
         Aihealth.text = "Health " + enemyhealth;
+        if (playerhealth < 1)
+        {
+            win.text = "you lose";
+        }
     }
 
     void Deal()
