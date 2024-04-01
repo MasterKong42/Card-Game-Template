@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6073636616715616105}
   m_Layer: 5
   m_Name: MultiplyCard
-  m_TagString: Sheild
+  m_TagString: Multiply
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,7 +236,7 @@ PrefabInstance:
     - target: {fileID: 2217404899377687377, guid: b529d50890eb2496097e30dd84eb086e, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: e8cf4aa9b95034822bd5a867993409c4, type: 2}
+      objectReference: {fileID: 11400000, guid: 0954e64ccb88d4ab6a62160e5320b0c3, type: 2}
     - target: {fileID: 7851402444834173280, guid: b529d50890eb2496097e30dd84eb086e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 265.194
@@ -299,7 +299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8351934428084809037, guid: b529d50890eb2496097e30dd84eb086e, type: 3}
       propertyPath: m_TagString
-      value: Attack
+      value: Multiply
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -9,9 +9,9 @@ public class Player : MonoBehaviour
 {
 
     public Enemy Enemy;
-    public Card card;
+    public GameObject playedcard;
     public int player_energy;
-    public Card_data data;
+    public Card data;
     public bool isPlayerTurn = true;
     public GameManager Manager;
     public bool boosted;
@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
             Debug.Log(randomspot.position);
             drawncard = Manager.player_deck[randomIndex];
             Manager.player_deck[randomIndex].SetActive(true);
-            drawncard.transform.localScale = new Vector3(0.6f, 0.6f, 1f);
+            drawncard.transform.localScale = new Vector3(0.8f, 0.8f, 1f);
             drawncard.transform.parent = canvas.transform;
             drawncard.transform.position = randomspot.position;
             Manager.player_hand.Add(Manager.player_deck[randomIndex]);
@@ -96,21 +96,28 @@ public class Player : MonoBehaviour
         Manager.player_discard_pile.Clear();
     }
 
-    public void playcard(GameObject Card)
+    public void playcard(GameObject  pCard)
     {
         if (playerTurn)
         {
-            Manager.player_discard_pile.Add(Card);
-            Manager.player_hand.Remove(Card);
-            card = FindObjectOfType<Card>();
-            data = card.data;
+            
+            Manager.player_discard_pile.Add(pCard);
+            Manager.player_hand.Remove(pCard);
+           
+            playedcard = pCard.transform.GetChild(0).gameObject;
+
+            
+            data= playedcard.GetComponent<Card>();
+            
             Debug.Log("Card Name: " + data.card_name);
             Debug.Log("Description: " + data.description);
             Debug.Log("Health: " + data.health);
             Debug.Log("Cost: " + data.cost);
-            Debug.Log("Damage: " + data.damage);
+            Debug.Log("Effect: " + data.damage);
             if (player_energy < data.cost)
             {
+                randomspot.position = new Vector2(Random.Range(40, 1100), Random.Range(60, 300));
+                pCard.transform.position = randomspot.position;
                 return;
             }
 
@@ -126,7 +133,7 @@ public class Player : MonoBehaviour
                 boosted = false;
             }
 
-            if (Card.CompareTag("Attack"))
+            if (pCard.CompareTag("Attack"))
             {
                 if (Manager.enemyshield > 0)
                 {
@@ -146,39 +153,66 @@ public class Player : MonoBehaviour
                 Debug.Log("did " + effectAmount + " damage");
             }
 
-            if (Card.CompareTag("Sheild"))
+            if (pCard.CompareTag("Sheild"))
             {
                 Manager.playershield += effectAmount;
             }
 
-            if (Card.CompareTag("Peirce"))
+            if (pCard.CompareTag("Peirce"))
             {
                 Manager.enemyhealth -= effectAmount;
             }
 
-            if (Card.CompareTag("Heal"))
+            if (pCard.CompareTag("Heal"))
             {
                 Manager.playerhealth += effectAmount;
             }
 
-            if (Card.CompareTag("Meteor"))
+            if (pCard.CompareTag("Meteor"))
             {
-                Manager.enemyhealth -= effectAmount;
+                if (Manager.enemyshield > 0)
+                {
+                    Manager.enemyshield -= effectAmount;
+                }
+                else
+                {
+                    Manager.enemyhealth -= effectAmount;
+                }
+
+                if (Manager.enemyshield < 0)
+                {
+                    Manager.enemyhealth += Manager.enemyshield;
+                    Manager.enemyshield = 0;
+                }
                 Debug.Log("did " + effectAmount + " damage");
                 meteor = Mathf.FloorToInt(effectAmount / 2);
+                if (Manager.playershield > 0)
+                {
+                    Manager.playershield -= meteor;
+                }
+                else
+                {
+                    Manager.playerhealth -= meteor;
+                }
+
+                if (Manager.playershield < 0)
+                {
+                    Manager.playerhealth += Manager.playershield;
+                    Manager.playershield = 0;
+                }
                 Manager.playerhealth -= meteor;
                 Debug.Log("did " + meteor + " damage to player");
 
             }
 
-            if (Card.CompareTag("Multiply"))
+            if (pCard.CompareTag("Multiply"))
             {
                 boosted = true;
             }
 
-            Manager.player_hand.Remove(Card);
+            Manager.player_hand.Remove(pCard);
             
-            Card.SetActive(false);
+            pCard.SetActive(false);
         }
     }
 

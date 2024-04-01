@@ -51,6 +51,7 @@ public class Draganddrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     {
         if (dragging == false && other.CompareTag("playarea"))
         { 
+            Debug.Log("pain");
             player.playcard(gameObject);
         }
     }
