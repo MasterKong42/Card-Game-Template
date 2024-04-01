@@ -24,7 +24,7 @@ public int ai_energy;
     // Update is called once per frame
     void Update()
     {
-        if (Manager.enemyhealth <= 0)
+        if (Manager.enemyhealth <= 0 && Manager.playerhealth> 0)
         {
             playerwin();
         } 

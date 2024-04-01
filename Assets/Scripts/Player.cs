@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
-
+    
     public Enemy Enemy;
     public GameObject playedcard;
     public int player_energy;
-    public Card data;
+    private Card data;
     public bool isPlayerTurn = true;
     public GameManager Manager;
     public bool boosted;
     public int effectAmount;
-    public int meteor;
+    private int meteor;
     public bool playerTurn;
     public Canvas canvas;
     public Transform randomspot;
-
     public GameObject drawncard;
     // Start is called before the first frame update
     void Start()
@@ -29,12 +29,13 @@ public class Player : MonoBehaviour
         boosted = false;
         player_energy = 0;
         playerturn();
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
 
     }
 
@@ -200,7 +201,6 @@ public class Player : MonoBehaviour
                     Manager.playerhealth += Manager.playershield;
                     Manager.playershield = 0;
                 }
-                Manager.playerhealth -= meteor;
                 Debug.Log("did " + meteor + " damage to player");
 
             }
