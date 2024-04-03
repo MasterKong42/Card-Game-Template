@@ -34,10 +34,12 @@ public int ai_energy;
     void playerwin()
     {
         Manager.win.text = "You win";
+        Manager.endgame();
     }
 
     public void enemyturn()
     {
+        
         Player.playerTurn = false;
         Manager.enemyshield = 0;
         ai_energy += 3;

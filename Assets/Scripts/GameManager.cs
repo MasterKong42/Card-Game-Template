@@ -28,23 +28,17 @@ public class GameManager : MonoBehaviour
     public Player player;
     public Slider playerhealthbar;
     public Slider enemyhealthbar;
-    private void Awake()
-    {
-        if (gm != null && gm != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            gm = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-    }
+    public bool gameover;
+    public GameObject endgamebutton;
+    public GameObject endbutton;
+    public Canvas canvas;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(set());
         win.text = " ";
+        gameover = false;
     }
 
     IEnumerator set()
@@ -69,13 +63,23 @@ public class GameManager : MonoBehaviour
         if (playerhealth < 1 && enemyhealth > 1)
         {
             win.text = "you lose";
+            gameover = true;
+            endgame();
         }
 
         if (playerhealth < 1 && enemyhealth < 1) 
         {
            win.text = "you tie";
+           gameover = true;
+           endgame();
         }
         
+    }
+
+    public void endgame()
+    {
+        endbutton = Instantiate(endgamebutton);
+        endbutton.transform.parent = canvas.transform; 
     }
 
     void Deal()
