@@ -98,6 +98,11 @@ public int ai_energy;
                 Debug.Log("did "+attachedScript.damage+" damage");
             }
 
+            if (playedcard.tag == "Heal")
+            {
+                Manager.enemyhealth += attachedScript.damage;
+            }
+
             else
             {
                 Manager.enemyshield += attachedScript.damage;

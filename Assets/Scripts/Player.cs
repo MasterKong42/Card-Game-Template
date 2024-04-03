@@ -214,6 +214,11 @@ public class Player : MonoBehaviour
             
             pCard.SetActive(false);
         }
+        else
+        {
+            randomspot.position = new Vector2(Random.Range(40, 1100), Random.Range(60, 300));
+            pCard.transform.position = randomspot.position;
+        }
     }
 
 }
