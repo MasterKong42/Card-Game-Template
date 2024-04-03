@@ -83,14 +83,14 @@ public int ai_energy;
             Card attachedScript = playedcard.GetComponent<Card>();
             if (playedcard.tag == "Attack")
             {
-                int damadge = attachedScript.damage;
+                
                 if (Manager.playershield > 0)
                 {
-                    Manager.playershield -= damadge;
+                    Manager.playershield -= attachedScript.damage;
                 }
                 else
                 {
-                    Manager.playerhealth -= damadge;
+                    Manager.playerhealth -= attachedScript.damage;
                 }
 
                 if (Manager.playershield < 0)
