@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         while (Manager.player_hand.Count<5)
         {
             Playerdraw();
-            if (Manager.ai_deck.Count <= 0)
+            if (Manager.player_deck.Count <= 0)
                 shuffle();
         }
         
@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
         }
         else shuffle();
     }
-    void shuffle()
+    public void shuffle()
     {
         Manager.player_deck.AddRange(Manager.player_discard_pile);
         Manager.player_discard_pile.Clear();
